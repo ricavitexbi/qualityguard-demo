@@ -14,6 +14,13 @@ import {
 
 // ============= SERVIÇOS DE API =============
 class QualityControlAPI {
+  baseURL: string;
+  wsURL: string;
+  ws: WebSocket | null;
+  listeners: Map<string, Function[]>;
+  connectionStatus: string;
+  offlineQueue: any[];
+
   constructor() {
     this.baseURL = 'http://localhost:5000/api';
     this.wsURL = 'ws://localhost:5000';
